@@ -20,18 +20,29 @@ import {MatIconModule} from "@angular/material/icon";
 export class HomePageComponent {
   users: User[] = [];
    currUser: User = new User(0, '', '', '');
+   reccomendedUser: User = new User(0, '', '', '');
   constructor(private httpClient: HttpClient) {
-
-    this.getUsers(); // call getUsers method in the constructor
+    this.getCurrUser(); // call getCurrUser method in the constructor
   }
-  async getUsers() {
+  async getCurrUser() {
     try {
-      this.httpClient.get<User[]>('http://localhost:7878/users').subscribe((users) => {
-        this.users = users;
-        this.currUser = this.users[0];
+      this.httpClient.get<User>('http://localhost:7878/users/username/admin').subscribe((user) => {
+        this.currUser = user;
       });
     } catch (error) {
       console.error(error);
     }
+  }
+  async getRandomUser() {
+    try {
+      this.httpClient.get<User>('http://localhost:7878/users/random').subscribe((user) => {
+        this.currUser = user;
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  like() : void {
+    window.alert("You liked " + this.currUser.username);
   }
 }
