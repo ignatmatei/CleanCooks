@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {MatCardModule} from "@angular/material/card";
 import {User} from "../models/user";
-import axios from "axios";
+import {HttpClient} from "@angular/common/http";
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -14,14 +15,16 @@ import axios from "axios";
 export class HomePageComponent {
   users: User[] = [];
    currUser: User = new User(0, '', '', '');
-  constructor() {
+  constructor(private httpClient: HttpClient) {
+
     this.getUsers(); // call getUsers method in the constructor
   }
   async getUsers() {
     try {
-      const response = await axios.get<User[]>('http://localhost:7878/users');
-      this.users = response.data;
-      this.currUser = this.users[0];
+      this.httpClient.get<User[]>('http://localhost:7878/users').subscribe((users) => {
+        this.users = users;
+        this.currUser = this.users[0];
+      });
     } catch (error) {
       console.error(error);
     }
