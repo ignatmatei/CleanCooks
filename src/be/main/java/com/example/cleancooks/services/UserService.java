@@ -5,6 +5,7 @@ import com.example.cleancooks.entities.User;
 import com.example.cleancooks.entities.UserLikes;
 import com.example.cleancooks.errors.UserAlreadyExistsException;
 import com.example.cleancooks.errors.UserNotFoundException;
+import com.example.cleancooks.errors.UsernameIsTakenException;
 import com.example.cleancooks.repositories.MatchRepository;
 import com.example.cleancooks.repositories.UserLikesRepository;
 import com.example.cleancooks.repositories.UserRepository;
@@ -19,9 +20,12 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserLikesRepository userLikesRepository;
     private final MatchRepository matchRepository;
-    public void addUser(User user) throws UserAlreadyExistsException {
+    public void addUser(User user) throws UserAlreadyExistsException, UsernameIsTakenException {
         if(userRepository.existsByEmail(user.getEmail())) {
             throw new UserAlreadyExistsException("User already exists");
+        }
+        if(userRepository.existsByUsername(user.getUsername())) {
+            throw new UsernameIsTakenException("Username is taken");
         }
         userRepository.save(user);
     }
@@ -29,7 +33,10 @@ public class UserService {
         return userRepository.findById(uid).orElseThrow(() ->
                 new UserNotFoundException("User not found"));
     }
-
+    public User getUserByUsername(String username) throws UserNotFoundException {
+        return (User) userRepository.findByUsername(username).orElseThrow(() ->
+                new UserNotFoundException("User not found"));
+    }
     public List<User> getAllUsers() {
         return (List<User>) userRepository.findAll();
     }

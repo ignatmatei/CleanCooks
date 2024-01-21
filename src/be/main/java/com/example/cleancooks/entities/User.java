@@ -2,6 +2,7 @@ package com.example.cleancooks.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 
 import java.util.List;
 
@@ -13,8 +14,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long uid;
-    @Column
-    private String name;
+    @Getter
+    @Column(unique = true, nullable = false)
+    private String username;
     @Column(nullable = false, unique = true)
     private String email;
     @Column
@@ -25,14 +27,15 @@ public class User {
     private List<Match> matches;
     public User() {
     }
-    public User(String name, String email, String insta) {
-        this.name = name;
+    public User(String username, String email, String insta) {
+        this.username = username;
         this.email = email;
         this.insta = insta;
     }
     public User(User user) {
-        this.name = user.getName();
+        this.username = user.getUsername();
         this.email = user.getEmail();
         this.insta = user.getInsta();
     }
+
 }
