@@ -1,6 +1,18 @@
-<mat-card class="mat-card">
-  <mat-card-title>Home Page</mat-card-title>
-  <mat-card-content>
-    <p>Username : {{currUser.name}}</p>
-  </mat-card-content>
+ <mat-card class="mat-card">
+  <mat-card-title>{{currUser.username}}</mat-card-title>
+   <mat-card-content class="mat-card-content">
+  <img mat-card-image ngSrc="assets/paella.jpg" width="225" height="225" alt="paella">
+   </mat-card-content>
+   <mat-card-footer class="mat-card-footer">
+    <button mat-fab color="primary" style="margin-right: 2em">
+      <mat-icon>
+        favorite
+      </mat-icon>
+    </button>
+    <button mat-fab color="primary" style="margin-left: 2em">
+      <mat-icon>
+        clear
+      </mat-icon>
+    </button>
+   </mat-card-footer>
 </mat-card>
