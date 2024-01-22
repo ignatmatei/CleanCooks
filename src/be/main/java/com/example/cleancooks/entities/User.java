@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -21,10 +22,10 @@ public class User {
     private String email;
     @Column
     private String insta;
-    @OneToMany(mappedBy = "userWhoLiked")
-    private List<UserLikes> userLikes;
-    @OneToMany(mappedBy = "user1")
-    private List<Match> matches;
+    @ElementCollection
+    private List<Long> likes;
+    @ElementCollection
+    private List<Long> matches;
     public User() {
     }
     public User(String username, String email, String insta) {

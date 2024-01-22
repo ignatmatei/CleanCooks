@@ -27,6 +27,11 @@ public class UserController {
         userService.addUser(user);
         return ResponseEntity.ok().build();
     }
+    @PutMapping("/like/{uid}/{likedUid}")
+    public ResponseEntity<Void> likeUser(@PathVariable Long uid, @PathVariable Long likedUid) throws UserNotFoundException {
+        userService.likeUser(uid, likedUid);
+        return ResponseEntity.ok().build();
+    }
     @GetMapping("/{uid}")
     public ResponseEntity<User> getUser(@PathVariable Long uid) throws UserNotFoundException {
         return ResponseEntity.ok(userService.getUser(uid));
@@ -34,6 +39,11 @@ public class UserController {
     @GetMapping("/username/{username}")
     public ResponseEntity<User> getUserByUsername(@PathVariable String username) throws UserNotFoundException {
         return ResponseEntity.ok(userService.getUserByUsername(username));
+    }
+    @DeleteMapping("/{uid}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long uid) throws UserNotFoundException {
+        userService.deleteUser(uid);
+        return ResponseEntity.ok().build();
     }
     @DeleteMapping("/deleteAll")
     public ResponseEntity<Void> deleteAllUsers() {
