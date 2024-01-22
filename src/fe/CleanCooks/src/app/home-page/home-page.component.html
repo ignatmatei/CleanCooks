@@ -1,10 +1,29 @@
- <mat-card class="mat-card">
-  <mat-card-title>{{currUser.username}}</mat-card-title>
+<mat-toolbar>
+  <button mat-mini-fab color="primary" matBadge="3">
+    <mat-icon>
+      date_range
+    </mat-icon>
+  </button>
+  <p class="toolbar_text">
+    Your future (delicious) dates are here!
+  </p>
+  <p style = "flex: 1 1 auto"></p>
+  <p>
+    Logout?
+  </p>
+  <button mat-mini-fab color="primary">
+    <mat-icon>
+      exit_to_app
+    </mat-icon>
+  </button>
+  </mat-toolbar>
+<mat-card class="mat-card">
+  <mat-card-title>{{reccomendedUser.username}}</mat-card-title>
    <mat-card-content class="mat-card-content">
   <img mat-card-image ngSrc="assets/paella.jpg" width="225" height="225" alt="paella">
    </mat-card-content>
    <mat-card-footer class="mat-card-footer">
-    <button mat-fab color="primary" onclick="like()" style="margin-right: 2em">
+    <button mat-fab color="primary" (click)="like()" style="margin-right: 2em">
       <mat-icon>
         favorite
       </mat-icon>

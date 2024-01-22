@@ -1,5 +1,5 @@
 .mat-card {
-  margin: 20em 30em 30em 50em;
+  margin: 15em 30em 30em 50em;
   width: 30em;
   height: 30em;
   flex-direction: column;
@@ -21,4 +21,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.toolbar_text {
+  margin-left: 0.5em;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #000000;
 }

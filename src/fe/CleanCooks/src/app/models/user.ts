@@ -3,12 +3,14 @@ export class User {
   username: string;
   email: string;
   insta: string;
+  matches: number[];
 
-  constructor(uid: number, username: string, email: string, insta: string) {
+  constructor(uid: number, username: string, email: string, insta: string, matches: number[]) {
     this.uid = uid;
     this.username = username;
     this.email = email;
     this.insta = insta;
+    this.matches = matches;
   }
 
 }
