@@ -1,1 +1,18 @@
-<p>log-in works!</p>
+<mat-card class="login-card">
+  <mat-card-title>
+    Login
+  </mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Username" [(ngModel)]="loginData.username" name="username" type="text">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Password" [(ngModel)]="loginData.password" name="password" type="password">
+      </mat-form-field>
+    </form>
+    <button mat-fab-button color="primary" (click)="login()" class="mat-fab-button">
+      <mat-icon>lock_open</mat-icon>
+    </button>
+  </mat-card-content>
+</mat-card>

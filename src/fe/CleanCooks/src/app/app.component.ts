@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,4 +13,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 })
 export class AppComponent {
   title = 'CleanCooks';
+  constructor(private router : Router) {
+    this.router.navigate(['/login']);
+  }
 }

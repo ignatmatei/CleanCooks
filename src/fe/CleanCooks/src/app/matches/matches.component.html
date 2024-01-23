@@ -1,1 +1,10 @@
-<p>matches works!</p>
+<mat-card class="matches-card" *ngFor="let matchedUser of matchedUsers">
+  <mat-card-title>
+    {{matchedUser.username}}
+  </mat-card-title>
+  <mat-card-content>
+    <p>
+      {{matchedUser.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
