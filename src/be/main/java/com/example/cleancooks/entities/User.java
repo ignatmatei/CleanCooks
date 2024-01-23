@@ -21,6 +21,12 @@ public class User {
     private String email;
     @Column
     private String insta;
+    @Column
+    private String age;
+    @Column
+    private String city;
+    @Column
+    private String description;
     @ElementCollection
     private List<Long> likes;
     @ElementCollection
