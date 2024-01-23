@@ -7,6 +7,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatBadgeModule} from "@angular/material/badge";
+import {RouterLink, RouterLinkActive} from "@angular/router";
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -16,14 +18,16 @@ import {MatBadgeModule} from "@angular/material/badge";
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
-   currUser: User = new User(0, '', '', '', []);
-   reccomendedUser: User = new User(0, '', '', '', []);
+   currUser: User = new User(0, '', '', '', [], '');
+   reccomendedUser: User = new User(0, '', '', '', [], '');
   constructor(private httpClient: HttpClient) {
     this.getCurrUser(); // call getCurrUser method in the constructor
     this.getRandomUser(); // call getRandomUser method in the constructor
