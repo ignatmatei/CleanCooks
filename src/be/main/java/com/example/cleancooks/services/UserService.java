@@ -54,6 +54,11 @@ public class UserService {
         userRepository.save(user);
         userRepository.save(likedUser);
     }
+    public User getRandomUser() {
+        List<User> users = (List<User>) userRepository.findAll();
+        int random = (int) (Math.random() * users.size());
+        return users.get(random);
+    }
     public void deleteAllUsers() {
         userRepository.deleteAll();
     }

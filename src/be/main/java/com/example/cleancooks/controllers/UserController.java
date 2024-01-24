@@ -21,6 +21,10 @@ public class UserController {
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
+    @GetMapping("/random")
+    public ResponseEntity<User> reccomendUser() {
+        return ResponseEntity.ok(userService.getRandomUser());
+    }
     @PostMapping("/add")
     public ResponseEntity<Void> addUser(@RequestBody User user) throws UserAlreadyExistsException,
             UsernameIsTakenException {
