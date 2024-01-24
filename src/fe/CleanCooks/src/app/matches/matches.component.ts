@@ -17,16 +17,14 @@ export class MatchesComponent {
   matchedUsers: User[] = [];
   currUser: User = new User(0, '', '', '', [], '');
   constructor(private httpClient: HttpClient) {
-    this.getCurrUser().then(r =>
-    this.getMatchedUsers()); // call getCurrUser method in the constructor
-    window.alert(this.currUser.username);
+    this.getCurrUser();
   }
   async getCurrUser() {
     try {
       this.httpClient.get<User>
       ('http://localhost:7878/api/users/username/matei').subscribe((user) => {
         this.currUser = user;
-        window.alert(this.currUser.matches[0]);
+        this.getMatchedUsers()
       });
     } catch (error) {
       console.error(error);
@@ -34,7 +32,6 @@ export class MatchesComponent {
   }
   async getMatchedUsers() {
     for(let i = 0; i < this.currUser.matches.length; i++) {
-      window.alert(this.currUser.matches[i]);
       this.httpClient.get<User>
       ('http://localhost:7878/api/users/' + this.currUser.matches[i]).subscribe((user) => {
         this.matchedUsers.push(user);
