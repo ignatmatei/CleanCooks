@@ -23,8 +23,8 @@ jobs:
 
       - name: Build with Maven
         run: |
-            ./mvnw clean package -DskipTests -Denv=cloud
-            # mvn clean install
+            #./mvnw clean package -DskipTests -Denv=cloud
+            mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
