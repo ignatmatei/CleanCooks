@@ -15,7 +15,7 @@
     <description>CleanCooks</description>
     <properties>
         <java.version>17</java.version>
-        <start-class>com.example.CleanCooks.CleanCooksApplication</start-class>
+        <start-class>com.example.cleancooks.CleanCooksApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
