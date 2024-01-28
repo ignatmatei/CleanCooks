@@ -17,6 +17,10 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
     private final UserService userService;
+    @GetMapping("/boris")
+    public ResponseEntity<String> getBoris() {
+        return ResponseEntity.ok("Boris1");
+    }
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
