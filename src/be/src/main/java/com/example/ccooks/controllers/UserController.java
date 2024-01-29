@@ -1,10 +1,10 @@
-package com.example.cleancooks.controllers;
+package com.example.ccooks.controllers;
 
-import com.example.cleancooks.entities.User;
-import com.example.cleancooks.errors.UserAlreadyExistsException;
-import com.example.cleancooks.errors.UserNotFoundException;
-import com.example.cleancooks.errors.UsernameIsTakenException;
-import com.example.cleancooks.services.UserService;
+import com.example.ccooks.entities.User;
+import com.example.ccooks.errors.UserAlreadyExistsException;
+import com.example.ccooks.errors.UserNotFoundException;
+import com.example.ccooks.errors.UsernameIsTakenException;
+import com.example.ccooks.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

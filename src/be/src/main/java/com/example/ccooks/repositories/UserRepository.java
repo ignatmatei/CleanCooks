@@ -1,6 +1,6 @@
-package com.example.cleancooks.repositories;
+package com.example.ccooks.repositories;
 
-import com.example.cleancooks.entities.User;
+import com.example.ccooks.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

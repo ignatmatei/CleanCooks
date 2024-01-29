@@ -1,4 +1,4 @@
-package com.example.cleancooks.errors;
+package com.example.ccooks.errors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

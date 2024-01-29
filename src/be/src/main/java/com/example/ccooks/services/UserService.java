@@ -1,11 +1,11 @@
-package com.example.cleancooks.services;
+package com.example.ccooks.services;
 
-import com.example.cleancooks.entities.User;
-import com.example.cleancooks.errors.UserAlreadyExistsException;
-import com.example.cleancooks.errors.UserNotFoundException;
-import com.example.cleancooks.errors.UsernameIsTakenException;
+import com.example.ccooks.entities.User;
+import com.example.ccooks.errors.UserAlreadyExistsException;
+import com.example.ccooks.errors.UserNotFoundException;
+import com.example.ccooks.errors.UsernameIsTakenException;
 
-import com.example.cleancooks.repositories.UserRepository;
+import com.example.ccooks.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

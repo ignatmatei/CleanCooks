@@ -1,4 +1,4 @@
-package com.example.cleancooks.entities;
+package com.example.ccooks.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
