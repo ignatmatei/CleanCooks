@@ -32,7 +32,7 @@ export class SignUpComponent {
   };
 
   async signUp() {
-    this.httpClient.post('http://localhost:7878/api/users/add', this.signUpData).subscribe(
+    this.httpClient.post('https://ccooks.azurewebsites.net/api/users/add', this.signUpData).subscribe(
       (user) => {
         // Handle successful response here
         this.router.navigate(['/home']);

@@ -22,7 +22,7 @@ export class MatchesComponent {
   async getCurrUser() {
     try {
       this.httpClient.get<User>
-      ('http://localhost:7878/api/users/username/matei').subscribe((user) => {
+      ('https://ccooks.azurewebsites.net/api/users/username/matei').subscribe((user) => {
         this.currUser = user;
         this.getMatchedUsers()
       });
@@ -33,7 +33,7 @@ export class MatchesComponent {
   async getMatchedUsers() {
     for(let i = 0; i < this.currUser.matches.length; i++) {
       this.httpClient.get<User>
-      ('http://localhost:7878/api/users/' + this.currUser.matches[i]).subscribe((user) => {
+      ('https://ccooks.azurewebsites.net/api/users/' + this.currUser.matches[i]).subscribe((user) => {
         this.matchedUsers.push(user);
       });
     }

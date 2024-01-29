@@ -31,7 +31,7 @@ export class LogInComponent {
   };
 
   async login() {
-    this.httpClient.get('http://localhost:7878/api/users/username/' + this.loginData.username).subscribe(
+    this.httpClient.get('https://ccooks.azurewebsites.net/api/users/username/' + this.loginData.username).subscribe(
       (user) => {
         // Handle successful response here
         this.router.navigate(['/home']);

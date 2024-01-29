@@ -35,7 +35,7 @@ export class HomePageComponent {
   async getCurrUser() {
     try {
       this.httpClient.get<User>
-      ('http://localhost:7878/api/users/username/matei').subscribe((user) => {
+      ('https://ccooks.azurewebsites.net/api/users/username/matei').subscribe((user) => {
         this.currUser = user;
       });
     } catch (error) {
@@ -44,7 +44,7 @@ export class HomePageComponent {
   }
   async getRandomUser() {
     try {
-      this.httpClient.get<User>('http://localhost:7878/api/users/username/Diana').subscribe((user) => {
+      this.httpClient.get<User>('https://ccooks.azurewebsites.net/api/users/username/Diana').subscribe((user) => {
         this.reccomendedUser = user;
       });
     } catch (error) {
@@ -53,7 +53,7 @@ export class HomePageComponent {
   }
   like() : void {
     this.httpClient.put
-    ('http://localhost:7878/api/users/like/' + this.currUser.uid + '/' + this.reccomendedUser.uid, null)
+    ('https://ccooks.azurewebsites.net/api/users/like/' + this.currUser.uid + '/' + this.reccomendedUser.uid, null)
       .subscribe();
   }
 }
