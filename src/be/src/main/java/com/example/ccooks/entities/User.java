@@ -20,6 +20,8 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
     @Column
+    private String password;
+    @Column
     private String insta;
     @Column
     private String age;

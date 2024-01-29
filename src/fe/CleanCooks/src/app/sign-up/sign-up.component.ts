@@ -28,7 +28,8 @@ export class SignUpComponent {
 
   signUpData = {
     email: '',
-    username: ''
+    username: '',
+    password: '',
   };
 
   async signUp() {
