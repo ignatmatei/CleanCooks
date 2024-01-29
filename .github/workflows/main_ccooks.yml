@@ -26,6 +26,7 @@ jobs:
             #./mvnw clean package -DskipTests -Denv=cloud
             # mvn clean install
             cd src/be
+            chmod +x mvnw
             ./mvnw clean package -DskipTests -Denv=cloud
 
       - name: Upload artifact for deployment job
