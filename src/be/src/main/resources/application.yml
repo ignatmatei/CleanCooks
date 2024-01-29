@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/CleanCooks
-    username: postgres
-    password: matei
+    url: jdbc:postgresql://cookserver.postgres.database.azure.com:5432/CleanCooks
+    username: boris
+    password: postgres1!
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
