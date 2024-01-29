@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - CCooks
+name: Build and deploy JAR app to Azure Web App - Ccooks
 
 on:
   push:
@@ -22,18 +22,13 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: |
-            #./mvnw clean package -DskipTests -Denv=cloud
-            # mvn clean install
-            cd src/be
-            chmod +x mvnw
-            ./mvnw clean package -DskipTests -Denv=cloud
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/src/be/target/*.jar'
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,7 +47,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'CCooks'
+          app-name: 'Ccooks'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F2BF2FF6AC1647E9A06BCB12A864AC8A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_10A9460117D64148A17B0EE5FB37BB47 }}
           package: '*.jar'
