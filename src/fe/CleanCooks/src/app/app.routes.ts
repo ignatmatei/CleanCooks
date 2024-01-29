@@ -3,6 +3,7 @@ import {HomePageComponent} from "./home-page/home-page.component";
 import {MatchesComponent} from "./matches/matches.component";
 import {LogInComponent} from "./log-in/log-in.component";
 import {SignUpComponent} from "./sign-up/sign-up.component";
+import {ProfileComponent} from "./profile/profile.component";
 export const routes: Routes = [
   {
     path: 'matches',
@@ -20,5 +21,14 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   }
 ];
