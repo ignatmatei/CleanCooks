@@ -24,13 +24,15 @@ jobs:
       - name: Build with Maven
         run: |
             #./mvnw clean package -DskipTests -Denv=cloud
-            mvn clean install
+            # mvn clean install
+            cd src/be
+            ./mvnw clean package -DskipTests -Denv=cloud
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/src/be/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
