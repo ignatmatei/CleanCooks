@@ -33,11 +33,13 @@ export class LogInComponent {
   async login() {
     this.httpClient.get('https://ccooks.azurewebsites.net/api/users/username/' + this.loginData.username).subscribe(
       (user) => {
-        // Handle successful response here
+        if (user[0].password !== this.loginData.password) {
+          console.error('Incorrect password');
+          return;
+        }
         this.router.navigate(['/home']);
       },
       (error) => {
-        // Handle error response here
         console.error(error.error.message);
       }
     );

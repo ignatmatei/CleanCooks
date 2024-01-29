@@ -35,11 +35,9 @@ export class SignUpComponent {
   async signUp() {
     this.httpClient.post('https://ccooks.azurewebsites.net/api/users/add', this.signUpData).subscribe(
       (user) => {
-        // Handle successful response here
         this.router.navigate(['/home']);
       },
       (error) => {
-        // Handle error response here
         console.error(error.error.message);
       }
     );
