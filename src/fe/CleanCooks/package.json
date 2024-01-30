@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "buildGHPages": "ng build --base-href /CleanCooks/",
+    "generateComponent": "ng generate component",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:CleanCooks": "node dist/clean-cooks/server/server.mjs"
