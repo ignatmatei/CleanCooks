@@ -48,8 +48,13 @@ public class UserController {
     public ResponseEntity<User> getUserByUsername(@PathVariable String username) throws UserNotFoundException {
         return ResponseEntity.ok(userService.getUserByUsername(username));
     }
+    @PatchMapping("/{uid}")
+    public ResponseEntity<Void> updateUser(@PathVariable Long uid, @RequestBody User user) throws UserNotFoundException {
+        userService.updateUserProfile(uid, user.getInsta(), user.getAge(), user.getCity(), user.getDescription());
+        return ResponseEntity.ok().build();
+    }
     @DeleteMapping("/{uid}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long uid) throws UserNotFoundException {
+    public ResponseEntity<Void              > deleteUser(@PathVariable Long uid) throws UserNotFoundException {
         userService.deleteUser(uid);
         return ResponseEntity.ok().build();
     }

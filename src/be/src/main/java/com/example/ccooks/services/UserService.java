@@ -59,6 +59,15 @@ public class UserService {
         int random = (int) (Math.random() * users.size());
         return users.get(random);
     }
+    public void updateUserProfile(Long uid, String insta, String age,
+                                  String description, String city) throws UserNotFoundException {
+        User user = getUser(uid);
+        user.setInsta(insta);
+        user.setAge(age);
+        user.setDescription(description);
+        user.setCity(city);
+        userRepository.save(user);
+    }
     public void deleteAllUsers() {
         userRepository.deleteAll();
     }
