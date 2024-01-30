@@ -20,7 +20,12 @@ import {MatInputModule} from "@angular/material/input";
 })
 export class ProfileComponent {
   currUser: User = new User(0, '', '', '', [], '');
-  profile : any = null;
+  profile = {
+    insta: '',
+    age: '',
+    description: '',
+    city: ''
+  };
   constructor(private router: Router, private httpClient: HttpClient) {
    this.getCurrUser();
 
@@ -37,5 +42,13 @@ export class ProfileComponent {
   }
   async saveProfile(profile : any) {
     console.log(profile);
-}
+    try {
+      this.httpClient.patch<User>('https://ccooks.azurewebsites.net/api/users/52', profile).subscribe((user) => {
+        this.currUser = user;
+        this.router.navigate(['../home']);
+    });
+    } catch (error) {
+  console.error(error);
+    }
+     }
 }
