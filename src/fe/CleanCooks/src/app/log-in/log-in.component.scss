@@ -1,3 +1,4 @@
+@use '../../styles' as styles;
 .login-card {
   margin-top: 4em;
   margin-left: 46em;
@@ -9,6 +10,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  text-font: styles.$text-font-family;
 }
 .form-field {
   margin-top: 2em;
