@@ -11,7 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatIconModule
   ],
-  ],
   templateUrl: './modify-profile-popup.component.html',
   styleUrl: './modify-profile-popup.component.scss'
 })

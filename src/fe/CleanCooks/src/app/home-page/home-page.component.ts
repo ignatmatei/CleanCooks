@@ -8,7 +8,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatBadgeModule} from "@angular/material/badge";
 import {RouterLink, RouterLinkActive} from "@angular/router";
-
+import {ModifyProfilePopupComponent} from "../modify-profile-popup/modify-profile-popup.component";
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -20,7 +20,8 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
     MatToolbarModule,
     MatBadgeModule,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    ModifyProfilePopupComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
@@ -51,9 +52,14 @@ export class HomePageComponent {
       console.error(error);
     }
   }
-  like() : void {
+  async like() {
     this.httpClient.put
     ('https://ccooks.azurewebsites.net/api/users/like/' + this.currUser.uid + '/' + this.reccomendedUser.uid, null)
       .subscribe();
+  }
+  displayPopup() {
+    if (this.currUser.description === '') {
+      alert('You must complete your profile before you can like other users!');
+    }
   }
 }
