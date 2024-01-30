@@ -1,25 +1,29 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
 import {HttpClient} from '@angular/common/http';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from "@angular/forms"
 import {User} from "../models/user";
+import {MatIcon} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
 @Component({
   selector: 'app-profile',
   standalone: true,
   imports: [
     MatCardModule,
-    MatButtonModule,
-    FormsModule
+    MatInputModule,
+    FormsModule,
+    MatIcon,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
   currUser: User = new User(0, '', '', '', [], '');
+  profile : any = null;
   constructor(private router: Router, private httpClient: HttpClient) {
    this.getCurrUser();
+
   }
  async getCurrUser() {
     try {
@@ -31,5 +35,7 @@ export class ProfileComponent {
       console.error(error);
     }
   }
-
+  async saveProfile(profile : any) {
+    console.log(profile);
+}
 }
