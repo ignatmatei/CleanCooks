@@ -1,4 +1,5 @@
 @use '../../styles' as styles;
+@media only screen and (min-width: 1000px) {
 .login-card {
   margin-top: 4em;
   margin-left: 46em;
@@ -11,6 +12,7 @@
   display: flex;
   flex-direction: column;
   text-font: styles.$text-font-family;
+}
 }
 .form-field {
   margin-top: 2em;
