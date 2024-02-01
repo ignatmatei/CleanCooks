@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
-import {HttpClient, HttpErrorResponse, HttpEventType} from "@angular/common/http";
+import {HttpClient, HttpEventType} from "@angular/common/http";
 import {Router, RouterLinkActive} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
 import {RouterLink} from "@angular/router";
-import { catchError } from 'rxjs';
-
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-log-in',
   standalone: true,
@@ -17,7 +16,8 @@ import { catchError } from 'rxjs';
     FormsModule,
     MatIcon,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    MatButtonModule
   ],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.scss'
