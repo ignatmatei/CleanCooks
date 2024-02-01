@@ -4,11 +4,25 @@
   </mat-card-title>
   <mat-card-content>
     <form>
+       @if(this.error == "Not Found") {
+        <p style="color: red;">
+          Invalid username or password! Please try again!
+        </p>
+        }
       <mat-form-field class="form-field">
-        <input matInput placeholder="Username" [(ngModel)]="loginData.username" name="username" type="text">
+        <input matInput placeholder="Username"
+          [(ngModel)]="loginData.username" name="username"
+          type="text">
       </mat-form-field>
-      <mat-form-field class="form-field">
-        <input matInput placeholder="Password" [(ngModel)]="loginData.password" name="password" type="password">
+       @if(this.error == "Not Found") {
+        <p style="color: red;">
+          Invalid username or password! Please try again!
+        </p>
+        }
+        <mat-form-field class="form-field">
+        <input matInput placeholder="Password"
+          [(ngModel)]="loginData.password" name="password"
+          type="password">
       </mat-form-field>
     </form>
     <button mat-fab color="primary" (click)="login()">

@@ -5,16 +5,20 @@
   <mat-card-content class = "mat-card-content">
     <form>
     <mat-form-field>
-      <input matInput placeholder="City" [(ngModel)]="profile.city" name="city">
+      <input matInput placeholder="City"
+          [(ngModel)]="profile.city" name="city">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Description" [(ngModel)]="profile.description" name = "description">
+      <input matInput placeholder="Description"
+          [(ngModel)]="profile.description" name = "description">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Instagram" [(ngModel)]="profile.insta" name = "insta">
+      <input matInput placeholder="Instagram"
+          [(ngModel)]="profile.insta" name = "insta">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Age" [(ngModel)]="profile.age" name = "age">
+      <input matInput placeholder="Age"
+          [(ngModel)]="profile.age" name = "age">
     </mat-form-field>
     </form>
     <button mat-fab color="primary" (click)="saveProfile(profile)">

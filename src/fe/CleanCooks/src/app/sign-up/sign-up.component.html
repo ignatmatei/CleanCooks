@@ -2,14 +2,27 @@
   <mat-card-title>Sign up</mat-card-title>
 <mat-card-content>
     <form>
+      @if(this.error === "Conflict") {
+      <p style="color: red;">
+        This e-mail is already used. Did you mean to login ?
+      </p>
+      }
+      @if(this.error === "Not Enough Info"){
+      <p style="color: red;">
+      Please complete all your information before attempting to sign up!
+      </p>
+      }
       <mat-form-field>
-        <input matInput placeholder="Email" [(ngModel)]="signUpData.email" name="email">
+        <input matInput placeholder="Email"
+          [(ngModel)]="signUpData.email" name="email">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Username" [(ngModel)]="signUpData.username" name="username">
+        <input matInput placeholder="Username"
+          [(ngModel)]="signUpData.username" name="username">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Password" [(ngModel)]="signUpData.password" name="password">
+        <input matInput placeholder="Password"
+          [(ngModel)]="signUpData.password" name="password">
       </mat-form-field>
       <button mat-fab color="primary" (click)="signUp()">
         Sign up
