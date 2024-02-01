@@ -5,8 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router, RouterLinkActive} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
-import {RouterLink} from "@angular/router";
-
+import {RouterLink} from "@angular/router"; import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-sign-up',
   standalone: true,
@@ -16,7 +15,8 @@ import {RouterLink} from "@angular/router";
     FormsModule,
     MatIcon,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    MatButtonModule
   ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'

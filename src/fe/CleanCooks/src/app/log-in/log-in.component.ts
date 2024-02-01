@@ -6,6 +6,7 @@ import {Router, RouterLinkActive} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
 import {RouterLink} from "@angular/router";
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-log-in',
   standalone: true,
@@ -15,7 +16,8 @@ import {RouterLink} from "@angular/router";
     FormsModule,
     MatIcon,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    MatButtonModule
   ],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.scss'
