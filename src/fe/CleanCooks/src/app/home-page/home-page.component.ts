@@ -45,7 +45,7 @@ export class HomePageComponent {
   }
   async getRandomUser() {
     try {
-      this.httpClient.get<User>('https://ccooks.azurewebsites.net/api/users/username/Diana').subscribe((user) => {
+      this.httpClient.get<User>('https://ccooks.azurewebsites.net/api/users/random').subscribe((user) => {
         this.reccomendedUser = user;
       });
     } catch (error) {
