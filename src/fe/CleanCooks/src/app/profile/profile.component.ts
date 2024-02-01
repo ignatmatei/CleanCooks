@@ -6,6 +6,7 @@ import {FormsModule} from "@angular/forms"
 import {User} from "../models/user";
 import {MatIcon} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -14,6 +15,7 @@ import {MatInputModule} from "@angular/material/input";
     MatInputModule,
     FormsModule,
     MatIcon,
+    MatButtonModule
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
