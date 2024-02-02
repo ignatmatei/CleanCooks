@@ -1,7 +1,8 @@
-@if(0.1 + 0.2 === 0.3) {
+@if(this.currUser.description === null) {
 <app-modify-profile-popup>
 </app-modify-profile-popup>
 }
+@else {
 <mat-toolbar>
   <button mat-mini-fab color="primary"
           routerLink="../matches" routerLinkActive="routerLinkActive"
@@ -41,3 +42,4 @@
     </button>
    </mat-card-footer>
 </mat-card>
+}

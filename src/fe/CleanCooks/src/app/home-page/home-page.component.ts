@@ -9,6 +9,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatBadgeModule} from "@angular/material/badge";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {ModifyProfilePopupComponent} from "../modify-profile-popup/modify-profile-popup.component";
+import { currUser } from '../currUser';
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -27,7 +28,7 @@ import {ModifyProfilePopupComponent} from "../modify-profile-popup/modify-profil
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
-   currUser: User = new User(0, '', '', '', [], '');
+  currUser : User = new User(0, '', '', '', [], '');
    reccomendedUser: User = new User(0, '', '', '', [], '');
   constructor(private httpClient: HttpClient) {
     this.getCurrUser(); // call getCurrUser method in the constructor
@@ -36,8 +37,9 @@ export class HomePageComponent {
   async getCurrUser() {
     try {
       this.httpClient.get<User>
-      ('https://ccooks.azurewebsites.net/api/users/username/matei').subscribe((user) => {
+      ('https://ccooks.azurewebsites.net/api/users/username/' + currUser.getInstance().username).subscribe((user) => {
         this.currUser = user;
+        console.log(this.currUser.description);
       });
     } catch (error) {
       console.error(error);

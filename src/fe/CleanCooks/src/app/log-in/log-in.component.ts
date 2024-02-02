@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
 import {RouterLink} from "@angular/router";
 import { MatButtonModule } from '@angular/material/button';
+import { currUser } from '../currUser';
 @Component({
   selector: 'app-log-in',
   standalone: true,
@@ -42,6 +43,7 @@ export class LogInComponent {
     .subscribe(event => {
         switch(event.type) {
           case HttpEventType.Response:
+          currUser.getInstance().addUsername(this.loginData.username);
           this.router.navigate(['../home']);
           break;
         }
