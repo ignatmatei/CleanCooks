@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="sign-up-card">
   <mat-card-title>Sign up</mat-card-title>
 <mat-card-content>
     <form>
@@ -12,19 +12,20 @@
       Please complete all your information before attempting to sign up!
       </p>
       }
-      <mat-form-field>
+      <mat-form-field class="form-field">
         <input matInput placeholder="Email"
           [(ngModel)]="signUpData.email" name="email">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="form-field">
         <input matInput placeholder="Username"
           [(ngModel)]="signUpData.username" name="username">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="form-field">
         <input matInput placeholder="Password"
           [(ngModel)]="signUpData.password" name="password">
       </mat-form-field>
-      <button mat-fab color="primary" (click)="signUp()">
+      <button mat-fab color="primary" (click)="signUp()"
+        class="mat-fab-button">
         Sign up
       </button>
     </form>

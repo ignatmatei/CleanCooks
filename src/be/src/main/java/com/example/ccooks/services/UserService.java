@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -70,5 +71,28 @@ public class UserService {
     }
     public void deleteAllUsers() {
         userRepository.deleteAll();
+    }
+    public User recommendUser(String username) {
+        User user = (User) userRepository.findByUsername(username).orElse(null);
+        if (user == null) {
+            return null;
+        }
+        List<User> users = (List<User>) userRepository.findAll();
+        for (User u : users) {
+            if (user.getLikes().contains(u.getUid())) {
+                users.remove(u);
+            }
+            if (user.getMatches().contains(u.getUid())) {
+                users.remove(u);
+            }
+            if (u.getUid().equals(user.getUid())) {
+                users.remove(u);
+            }
+        }
+        if (users.size() == 0) {
+            return null;
+        }
+        int random = (int) (Math.random() * users.size());
+        return users.get(random);
     }
 }

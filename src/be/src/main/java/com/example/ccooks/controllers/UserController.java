@@ -54,7 +54,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
     @DeleteMapping("/{uid}")
-    public ResponseEntity<Void              > deleteUser(@PathVariable Long uid) throws UserNotFoundException {
+    public ResponseEntity<Void> deleteUser(@PathVariable Long uid) throws UserNotFoundException {
         userService.deleteUser(uid);
         return ResponseEntity.ok().build();
     }
@@ -62,5 +62,9 @@ public class UserController {
     public ResponseEntity<Void> deleteAllUsers() {
         userService.deleteAllUsers();
         return ResponseEntity.ok().build();
+    }
+    @GetMapping("/recommend/{username}")
+    public ResponseEntity<User> recommendUser(@PathVariable String username) {
+        return ResponseEntity.ok(userService.recommendUser(username));
     }
 }
