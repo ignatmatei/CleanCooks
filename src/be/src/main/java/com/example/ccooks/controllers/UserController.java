@@ -14,13 +14,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:4200", "https://ignatmatei.github.io/"})
+@CrossOrigin(origins = {"https://ignatmatei.github.io/"})
 public class UserController {
     private final UserService userService;
-    @GetMapping("/boris")
-    public ResponseEntity<String> getBoris() {
-        return ResponseEntity.ok("Boris1");
-    }
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
