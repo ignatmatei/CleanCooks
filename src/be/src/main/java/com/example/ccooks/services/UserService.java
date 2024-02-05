@@ -78,10 +78,12 @@ public class UserService {
         List<User> users = (List<User>) userRepository.findAll();
         users.remove(user);
         for (User u : users) {
-            if (!user.getLikes().contains(u.getUid()) && !user.getMatches().contains(u.getUid())) {
+            if (user.getLikes() != null && user.getMatches() != null &&
+                    !user.getLikes().contains(u.getUid()) && !user.getMatches().contains(u.getUid())) {
                 return u;
             }
         }
-        return null;
+       int random = (int) (Math.random() * users.size());
+        return users.get(random);
     }
 }

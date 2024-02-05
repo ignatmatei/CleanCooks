@@ -67,5 +67,5 @@ public class UserController {
         public ResponseEntity<User> recommendUser (@PathVariable String username) throws UserNotFoundException{
             return ResponseEntity.ok(userService.recommendUser(username));
         }
-    
+
 }
