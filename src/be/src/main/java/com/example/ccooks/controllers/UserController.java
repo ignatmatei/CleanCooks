@@ -64,7 +64,8 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
     @GetMapping("/recommend/{username}")
-    public ResponseEntity<User> recommendUser(@PathVariable String username) {
-        return ResponseEntity.ok(userService.recommendUser(username));
-    }
+        public ResponseEntity<User> recommendUser (@PathVariable String username) throws UserNotFoundException{
+            return ResponseEntity.ok(userService.recommendUser(username));
+        }
+    
 }

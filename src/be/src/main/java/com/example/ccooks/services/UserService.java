@@ -72,27 +72,16 @@ public class UserService {
     public void deleteAllUsers() {
         userRepository.deleteAll();
     }
-    public User recommendUser(String username) {
-        User user = (User) userRepository.findByUsername(username).orElse(null);
-        if (user == null) {
-            return null;
-        }
+    public User recommendUser(String username) throws UserNotFoundException {
+        User user = (User) userRepository.findByUsername(username).orElseThrow(() ->
+                new UserNotFoundException("User not found"));
         List<User> users = (List<User>) userRepository.findAll();
+        users.remove(user);
         for (User u : users) {
-            if (user.getLikes().contains(u.getUid())) {
-                users.remove(u);
-            }
-            if (user.getMatches().contains(u.getUid())) {
-                users.remove(u);
-            }
-            if (u.getUid().equals(user.getUid())) {
-                users.remove(u);
+            if (!user.getLikes().contains(u.getUid()) && !user.getMatches().contains(u.getUid())) {
+                return u;
             }
         }
-        if (users.size() == 0) {
-            return null;
-        }
-        int random = (int) (Math.random() * users.size());
-        return users.get(random);
+        return null;
     }
 }
