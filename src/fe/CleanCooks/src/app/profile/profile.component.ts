@@ -35,7 +35,7 @@ export class ProfileComponent {
  async getCurrUser() {
     try {
       this.httpClient.get<User>
-      ('https://ccooks.azurewebsites.net/api/users/52').subscribe((user) => {
+      ('https://cleancooks.azurewebsites.net/api/users/52').subscribe((user) => {
         this.currUser = user;
       });
     } catch (error) {
@@ -45,7 +45,7 @@ export class ProfileComponent {
   async saveProfile(profile : any) {
     console.log(profile);
     try {
-      this.httpClient.patch<User>('https://ccooks.azurewebsites.net/api/users/52', profile).subscribe((user) => {
+      this.httpClient.patch<User>('https://cleancooks.azurewebsites.net/api/users/52', profile).subscribe((user) => {
         this.currUser = user;
         this.router.navigate(['../home']);
     });

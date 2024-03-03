@@ -37,7 +37,7 @@ export class LogInComponent {
 
   async login() {
     this.httpClient
-    .get('https://ccooks.azurewebsites.net/api/users/username/' + this.loginData.username, {
+    .get('https://cleancooks.azurewebsites.net/api/users/username/' + this.loginData.username, {
         observe: "events",
       })
     .subscribe(event => {

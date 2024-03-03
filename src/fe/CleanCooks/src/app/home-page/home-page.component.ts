@@ -37,7 +37,7 @@ export class HomePageComponent {
   async getCurrUser() {
     try {
       this.httpClient.get<User>
-      ('https://ccooks.azurewebsites.net/api/users/username/' + currUser.getInstance().username).subscribe((user) => {
+      ('https://cleancooks.azurewebsites.net/api/users/username/' + currUser.getInstance().username).subscribe((user) => {
         this.currUser = user;
         console.log(this.currUser.description);
       });
@@ -47,7 +47,7 @@ export class HomePageComponent {
   }
   async getRandomUser() {
     try {
-      this.httpClient.get<User>('https://ccooks.azurewebsites.net/api/users/recommend/' + currUser.getInstance().username).subscribe((user) => {
+      this.httpClient.get<User>('https://cleancooks.azurewebsites.net/api/users/recommend/' + currUser.getInstance().username).subscribe((user) => {
         this.reccomendedUser = user;
       });
     } catch (error) {
@@ -56,7 +56,7 @@ export class HomePageComponent {
   }
   async like() {
     this.httpClient.put
-    ('https://ccooks.azurewebsites.net/api/users/like/' + this.currUser.uid + '/' + this.reccomendedUser.uid, null)
+    ('https://cleancooks.azurewebsites.net/api/users/like/' + this.currUser.uid + '/' + this.reccomendedUser.uid, null)
       .subscribe();
   }
   displayPopup() {

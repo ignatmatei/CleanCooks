@@ -42,7 +42,7 @@ export class SignUpComponent { error : string; constructor(private httpClient: H
     }
     else {
     this.httpClient
-    .post('https://ccooks.azurewebsites.net/api/users/add', this.signUpData , {
+    .post('https://cleancooks.azurewebsites.net/api/users/add', this.signUpData , {
      observe:"events",
     }
     )
