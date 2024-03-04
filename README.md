@@ -1,7 +1,7 @@
 # Welcome to CleanCooks!
 
 ### Objective
-The objective of the project is to create a Tinder-like app for cooking enthusasts. The app will allow users to swipe through recipes and save the ones they like. For now users can on their home page like and match with other users that share their interest. At some point, we would like to add a feature that allows users to publish photos of their recipes.
+The objective of the project is to create a Tinder-like app for cooking enthusiasts. The app will allow users to swipe through recipes and save the ones they like. For now users can on their home page like and match with other users that share their interest. At some point, we would like to add a feature that allows users to publish photos of their recipes.
 
 ### Technologies
 - Angular: The front-end framework used for developing the application. 
@@ -14,7 +14,7 @@ The objective of the project is to create a Tinder-like app for cooking enthusas
 
 ### How to run the application
 - how to run the be server
-1. Clone the repository. Clone the repository
+1. Clone the repository.
 2. Navigate to the project directory
 3. Make sure you have Maven installed. If not, you can download it from [here](https://maven.apache.org/download.cgi).
 4. Run the command `mvn clean install` to build the project.
