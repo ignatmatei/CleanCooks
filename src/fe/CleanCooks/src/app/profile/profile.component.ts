@@ -7,6 +7,7 @@ import {User} from "../models/user";
 import {MatIcon} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import { MatButtonModule } from '@angular/material/button';
+import { currUser } from '../currUser';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -29,13 +30,12 @@ export class ProfileComponent {
     city: ''
   };
   constructor(private router: Router, private httpClient: HttpClient) {
-   this.getCurrUser();
-
+    this.getCurrUser();
   }
  async getCurrUser() {
     try {
       this.httpClient.get<User>
-      ('https://cleancooks.azurewebsites.net/api/users/52').subscribe((user) => {
+      ('https://cleancooks.azurewebsites.net/api/users/username/' + currUser.getInstance().username).subscribe((user) => {
         this.currUser = user;
       });
     } catch (error) {
@@ -45,7 +45,7 @@ export class ProfileComponent {
   async saveProfile(profile : any) {
     console.log(profile);
     try {
-      this.httpClient.patch<User>('https://cleancooks.azurewebsites.net/api/users/52', profile).subscribe((user) => {
+      this.httpClient.patch<User>('https://cleancooks.azurewebsites.net/api/users/' + this.currUser.uid, profile).subscribe((user) => {
         this.currUser = user;
         this.router.navigate(['../home']);
     });
